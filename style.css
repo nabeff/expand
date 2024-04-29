@@ -1,0 +1,50 @@
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.box {
+    padding: 2rem;
+    gap: 2rem;
+    flex: 1; /* Ensures equal initial width */
+    transition: flex-grow 0.6s ease; /* Updated transition duration for a slower animation */
+    overflow: hidden; /* Keeps contents inside */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically in the box */
+    align-items: center; /* Center content horizontally */
+}
+
+.box h1, .box h4 {
+    width: 100%; /* Ensures full width */
+    text-align: center; /* Centers text horizontally */
+    display: none; /* Hide everything initially */
+}
+
+.box .number { /* Only the number is visible initially */
+    display: block;
+}
+
+
+
+/* Style for the expanded box */
+.expanded {
+    flex-grow: 7; /* Larger flex-grow to take more space */
+    justify-content: flex-start; /* Align content to the top when expanded */
+}
+
+.expanded h1, .expanded h4 {
+    display: block; /* Show content when expanded */
+}
+
+
+.red { 
+    background-color: red; }
+
+.yellow { background-color: rgb(240, 240, 240); }
+
+.green { background-color: rgb(83, 83, 83); }
+
+.gray { background-color: gray; }
+
+.lightgray { background-color: lightgray; }
