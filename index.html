@@ -4,119 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <title>Document</title>
 </head>
 <body>
-    
-    <div class="flex">
+    <section id="teethslider">
+        <div class="container">
+            <div class="card" id="card1">
+                <div class="img"><img src="./card1.png" alt=""></div>
+                <div class="content">
+                    <h2>Cosmetic Consultations</h2>
+                    <p>Read more</p>
+                </div>
+            </div>
+            <div class="card" id="card2">
+                <div class="img"><img src="./card2.png" alt=""></div>
+                <div class="content">
+                    <h2>Cosmetic Consultations</h2>
+                    <p>Read more</p>
+                </div>
+            </div>
+            <div class="card" id="card3">
+                <div class="img"><img src="./cosmetic.png" alt=""></div>
+                <div class="content">
+                    <h2>Cosmetic Consultations</h2>
+                    <p>Read more</p>
+                </div>
+            </div>
+            <div class="card" id="card4">
+                <div class="img"><img src="./card4.png" alt=""></div>
+                <div class="content">
+                    <h2>Cosmetic Consultations</h2>
+                    <p>Read more</p>
+                </div>
+            </div>
 
-    <div class="box red">
-        <h1 class="title">Enlighten the Path</h1>
-        <h4> At the heart of our business lies a dynamic
-        venture model designed to fuel innovation and
-        drive growth. We thrive on identifying promising
-        opportunities and nurturing them into successful
-        ventures. Through strategic investments,
-        collaborative partnerships, and a relentless
-        pursuit of excellence, we empower entrepreneurs 
-        to bring their ideas to life and create lasting impact. </h4>
-        
-        <h1 class="number clickable">01</h1>
-        
-    </div>
+            <div class="card" id="card5">
+                <div class="img"><img src="./card1.png" alt=""></div>
+                <div class="content">
+                    <h2>Cosmetic Consultations</h2>
+                    <p>Read more</p>
+                </div>
+            </div>
+            <div class="card" id="card6">
+                <div class="img"><img src="./card2.png" alt=""></div>
+                <div class="content">
+                    <h2>Cosmetic Consultations</h2>
+                    <p>Read more</p>
+                </div>
+            </div>
+           
+            
 
-    <div class="box yellow ">
-        <h1 class="title">Enlighten the Path</h1>
-        <h4> At the heart of our business lies a dynamic
-            venture model designed to fuel innovation and
-            drive growth. We thrive on identifying promising
-            opportunities and nurturing them into successful
-            ventures. Through strategic investments,
-            collaborative partnerships, and a relentless
-            pursuit of excellence, we empower entrepreneurs 
-            to bring their ideas to life and create lasting impact. </h4>
-      
-        <h1 class="number clickable">02</h1>
-    </div>
-
-    <div class="box green">
-        <h1 class="title">Enlighten the Path</h1>
-        <h4> At the heart of our business lies a dynamic
-            venture model designed to fuel innovation and
-            drive growth. We thrive on identifying promising
-            opportunities and nurturing them into successful
-            ventures. Through strategic investments,
-            collaborative partnerships, and a relentless
-            pursuit of excellence, we empower entrepreneurs 
-            to bring their ideas to life and create lasting impact. </h4>
-        
-        <h1 class="number clickable">03</h1>
-    </div>
-
-    <div class="box lightgray">
-        <h1 class="title">Enlighten the Path</h1>
-        <h4> At the heart of our business lies a dynamic
-            venture model designed to fuel innovation and
-            drive growth. We thrive on identifying promising
-            opportunities and nurturing them into successful
-            ventures. Through strategic investments,
-            collaborative partnerships, and a relentless
-            pursuit of excellence, we empower entrepreneurs 
-            to bring their ideas to life and create lasting impact. </h4>
-       
-        <h1 class="number clickable">04</h1>
-    </div>
-
-    <div class="box gray">  
-        <h1 class="title">Enlighten the Path</h1>
-        <h4> At the heart of our business lies a dynamic
-            venture model designed to fuel innovation and
-            drive growth. We thrive on identifying promising
-            opportunities and nurturing them into successful
-            ventures. Through strategic investments,
-            collaborative partnerships, and a relentless
-            pursuit of excellence, we empower entrepreneurs 
-            to bring their ideas to life and create lasting impact. </h4>
-     
-        <h1 class="number clickable">05</h1>
-    </div>
-</div>
-
-</body>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const boxes = document.querySelectorAll('.box');
-    const clickableNumbers = document.querySelectorAll('.box .clickable');
-
-    clickableNumbers.forEach(clickable => {
-        clickable.addEventListener('click', function() {
-            const thisBox = clickable.closest('.box'); // Ensure we reference the correct box element
-
-            // Check if this box is already expanded
-            const isExpanded = thisBox.classList.contains('expanded');
-
-            // Reset all boxes
-            boxes.forEach(box => {
-                box.style.flex = "1";
-                box.classList.remove('expanded');
-                box.querySelector('h4').style.display = 'none'; // Hide detailed content
-                box.querySelector('.title').style.display = 'none'; // Hide the title
+           
+            <!-- Repeat for other cards, each with a unique ID like card2, card3... -->
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+            $(document).ready(function() {
+            var $slider = $('.container');
+            $slider.slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                autoplay: true,
+                arrows: false,
+                autoplaySpeed: 2000,
+                infinite: true
             });
 
-            // If this box was not already expanded, expand it
-            if (!isExpanded) {
-                thisBox.style.flex = "7"; // Expands the clicked box
-                thisBox.classList.add('expanded');
-                thisBox.querySelector('h4').style.display = 'block'; // Show detailed content
-                thisBox.querySelector('.title').style.display = 'block'; // Show the title
+            function adjustCardSizes() {
+                $slider.find('.slick-slide').each(function(index) {
+                    // Reset height
+                    $(this).find('img').css('height', '');
+
+                    // Apply specific height based on the position in the visible slides
+                    var height = '278px'; // default height for positions 1 and 4
+                    if (index % 4 === 1) {
+                        height = '377px'; // second visible slide
+                    } else if (index % 4 === 2) {
+                        height = '488px'; // third visible slide
+                    }
+                    $(this).find('img').css('height', height);
+                });
             }
+
+            // Adjust sizes initially and after each slide change
+            adjustCardSizes();
+            $slider.on('setPosition', function() {
+                adjustCardSizes();
+            });
+
+            // Also adjust when window is resized or orientation changes
+            $(window).on('resize orientationchange', function() {
+                adjustCardSizes();
+            });
         });
-    });
-});
-
-
     </script>
     
     
+</body>
 </html>

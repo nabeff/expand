@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <section id="navbar">
+        <div class="container">
+            <div class="logo">
+                <li id="logoLoading" class="loading"><img src="./logo.svg" alt=""></li>
+            </div>
+            <div id="navbarContent" class="content">
+                <li>Home</li>
+                <li>About</li>
+                <li>FULL Service Dentistry</li>
+                <li>Blogs</li>
+                <li>FAQS</li>
+                <li>Testimonials</li>
+            </div>
+            <div id="navbarContent" class="more">
+                <div class="plus"><li>+</li></div>
+            </div>
+            
+    </section>
+
+    <section id="home">
+
+            <div class="content">
+                <div class="title">
+                    <h1 id="homeTitle"><img id="homeImage" src="./arrow-right-home.svg" alt="">Premier cosmetic dentistry in Southern California.</h1>
+                </div>
+                
+                <div class="align-self">
+                    <button id="requestButton">REQUEST APPOINTMENT</button>
+                </div>
+                
+            </div>
+
+            <div class="content2">
+                <img src="./homePage.png" alt="">
+                
+            </div>
+            <div class="align-self center">
+                <button id="requestButton">REQUEST APPOINTMENT</button>
+            </div>
+     
+        </div>
+    </section>
+   
+
+    <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.getElementById('navbar');
+    const home = document.getElementById('home');
+    const logoLoading = document.getElementById('logoLoading');
+    const navbarContent = document.getElementById('navbarContent');
+    const navbarMore = document.getElementById('navbarMore');
+
+    // Handle fixed navbar on scroll
+    let navbarFixed = false;
+    window.onscroll = function() {
+        if (window.pageYOffset > 0 && !navbarFixed) {
+            navbar.style.position = 'fixed';
+            navbar.style.top = '0';
+            navbar.style.left = '0';
+            home.style.paddingTop = '60px';
+            navbarFixed = true;
+        } else if (window.pageYOffset === 0) {
+            navbar.style.position = 'relative';
+            home.style.paddingTop = '0';
+            navbarFixed = false;
+        }
+    };
+
+    // Ensure navbarContent is initially hidden and only shows after logo animation
+    logoLoading.addEventListener('animationend', function() {
+        navbarContent.style.animation = 'fadeInUpScale 0.5s forwards'; // Activates animation
+    });
+});
+
+
+        </script>
+        
+        
+        
+        
+</body>
+</html>
+
+@font-face{
+    font-family: myFont;
+    src: url(./Switzer-Variable.ttf);
+}
+
+body{
+    font-family: myFont;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+li{
+    text-decoration: none;
+    list-style: none;
+}
+
+#navbar {
+    position: relative; /* Start with navbar in the document flow */
+    width: 100%;
+    background-color: white;
+    transition: position 0.3s ease;
+    background-color: white;
+    z-index: 999;
+    /* Smooth transition for position change */
+}
+
+
+
+#navbar .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+#navbar .title{
+    display: flex;
+    justify-content: space-evenly; 
+    width: 100%;
+}
+
+#navbar .logo li{
+    font-size: 28px;
+    margin: 0;
+}
+
+#navbar .content{
+    display: flex;
+    justify-content: space-evenly; 
+    width: 100%;
+}
+
+/* Style for the list items */
+#navbar .content li {
+    font-size: 16px;
+    font-weight: 500;
+    position: relative; /* Needed for positioning the pseudo-element */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+}
+
+/* Pseudo-element for the underline */
+#navbar .content li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0; /* Start with no width */
+    height: 1px; /* Height of the underline */
+    background-color: black; /* Color of the underline */
+    transition: width 0.3s ease; /* Animation transition */
+}
+
+/* Animation on hover */
+#navbar .content li:hover::after {
+    width: 100%; /* Full width on hover */
+}
+
+
+
+#navbar .plus li{
+    font-size: 30px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#navbar .plus li:hover{
+    transform: rotate(45deg) scale(1.4);
+}
+
+/* Initial animation styles */
+#logoLoading img {
+    width: 75rem;  /* Start at 70rem width */
+    margin-left: 0rem;
+    animation: shrinkLogo 1.5s 0.5s forwards; /* Animation starts after a delay */
+}
+
+@keyframes shrinkLogo {
+    from { width: 70rem; margin-left: 2rem; }
+    to { width: 100px; }  /* Adjust to desired final size */
+}
+
+
+
+
+#navbarContent {
+    opacity: 0;
+    transform: scale(0.5) translateY(20px); 
+    animation: fadeInUpScale 0.5s 1s forwards; /* Delay of 3 seconds, then animate */
+}
+
+@keyframes fadeInUpScale {
+    from {
+        opacity: 0;
+        transform: scale(0.5) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+
+
+
+
+
+
+#home{
+    height: 100%;
+    width: 100%;
+    
+}
+
+#home .content{
+    display: flex;
+ 
+    justify-content: space-between;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+    
+}
+
+#home .title{
+    display: flex;
+    width: 80%;
+    
+}
+
+
+
+#home .title h1{
+    font-size: 60px;
+    font-weight: 500;
+    margin: 1rem;
+
+   
+}
+
+#home .title img{
+    margin-right: 2rem;
+    
+   
+}
+
+#home .align-self{
+    align-self: flex-end;
+}
+
+#home .align-self button {
+    background: black;
+    padding: 1rem;
+    color: white;
+    font-size: 16px;
+    border: none; /* Optional, removes any default border */
+    overflow: hidden; /* Ensures the background does not spill outside the boundaries */
+    position: relative; /* Positioning context for pseudo-elements */
+    transition: color 0.4s ease;
+    cursor: pointer; /* Smooth transition for text color */
+}
+
+#home .align-self button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: white; /* New background color that will reveal on hover */
+    transform: scaleX(0); /* Start scaled to 0 width */
+    transform-origin: left; /* Scaling should start from the right */
+    transition: transform 0.4s ease; /* Smooth transition for the transform */
+    z-index: -1; /* Ensures the text stays on top */
+}
+
+#home .align-self button:hover::before {
+    transform: scaleX(1); /* Scale to full width on hover */
+}
+
+#home .align-self button:hover {
+    color: black;
+    border: 1px solid black; /* Change text color on hover */
+}
+
+
+#home .content2{
+    width: 100%;
+   
+    object-fit: contain;
+    display: flex;
+    
+}
+
+#home .content2 img{
+    width: 100%;
+    height: 100%;
+    
+    
+}
+
+#home .center {
+   padding: 2rem;
+   display: flex;
+    justify-content: center;
+    
+    
+}
+
+
+#homeTitle {
+    transform: scale(0.3);
+    animation: scaleTitle 1s 1s forwards;
+    transform-origin: left;  /* Scale from the left */
+}
+
+@keyframes scaleTitle {
+    from { transform: scale(0.3); }
+    to { transform: scale(1); }
+}
+
+
+
+/* Existing animations */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#requestButton {
+    transform: scale(0.5); 
+    animation: scaleButton 1.5s 1s forwards; 
+}
+
+@keyframes scaleButton {
+    from { 
+        transform: scale(0.5);
+        
+    }
+    to { transform: scale(1); } 
+}

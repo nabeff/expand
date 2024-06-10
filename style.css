@@ -1,50 +1,71 @@
-.flex {
-    display: flex;
-    flex-direction: row;
+@font-face{
+    font-family: myFont;
+    src: url(./Switzer-Variable.ttf);
 }
 
-.box {
-    padding: 2rem;
+body{
+    font-family: myFont;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+li{
+    text-decoration: none;
+    list-style: none;
+}
+
+#teethslider{
+    height: 100%;
+    width: 100%;
+}
+
+#teethslider .container {
+    display: flex;
     gap: 2rem;
-    flex: 1; /* Ensures equal initial width */
-    transition: flex-grow 0.6s ease; /* Updated transition duration for a slower animation */
-    overflow: hidden; /* Keeps contents inside */
+    padding: 1rem;
+  
+}
+
+#teethslider .content h2{
+    font-size: 20px;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+#teethslider .content p{
+    font-size: 17px;
+    margin: 0;
+    text-decoration: underline;
+}
+
+#teethslider .card{
+    margin: 1rem;
+}
+
+#card1, #card2, #card3, #card4 {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically in the box */
-    align-items: center; /* Center content horizontally */
+   
+    
 }
 
-.box h1, .box h4 {
-    width: 100%; /* Ensures full width */
-    text-align: center; /* Centers text horizontally */
-    display: none; /* Hide everything initially */
-}
-
-.box .number { /* Only the number is visible initially */
-    display: block;
+#card1 img, #card2 img, #card3 img, #card4 img {
+    transition: width 0.5s ease, height 0.5s ease; 
 }
 
 
 
-/* Style for the expanded box */
-.expanded {
-    flex-grow: 7; /* Larger flex-grow to take more space */
-    justify-content: flex-start; /* Align content to the top when expanded */
+
+#card1 img { width: 25%; height: 278px; }
+#card2 img { width: 25%; height: 437px; }
+#card3 img { width: 40%; height: 488px; }
+#card4 img { width: 10%; height: 278px; }
+
+
+
+#teethslider .img img {
+    width: 100%; 
+ 
 }
 
-.expanded h1, .expanded h4 {
-    display: block; /* Show content when expanded */
-}
 
-
-.red { 
-    background-color: red; }
-
-.yellow { background-color: rgb(240, 240, 240); }
-
-.green { background-color: rgb(83, 83, 83); }
-
-.gray { background-color: gray; }
-
-.lightgray { background-color: lightgray; }
